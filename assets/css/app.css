@@ -158,7 +158,7 @@ body {
 
 .left_data_box .date_time_box{
     width: 100%;
-    height: 170px;
+    /*height: 170px;*/
     border: 1px solid #59f6fb;
     padding: 30px;
 }
@@ -177,6 +177,7 @@ body {
     overflow-y: scroll;
     box-sizing: border-box;
     padding: 30px;
+    border-right: 1px solid #59f6fb;
 }
 
 .left_data_box .room_map_box .left_data::-webkit-scrollbar{
@@ -189,6 +190,11 @@ body {
 
 .left_data_box .room_map_box .left_data .status_data_box{
     display: block;
+}
+
+.left_data_box .room_map_box .right_room_map {
+    position: relative;
+    border-left: 1px solid #59f6fb;
 }
 
 
@@ -303,10 +309,44 @@ body {
 
 .right_data_box .weather_box{
     width: 100%;
-    height: 150px;
     border: 1px solid #59f6fb;
     padding: 30px;
 }
+
+.right_data_box .weather_box .weather_info_box{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.right_data_box .weather_box .other_info{
+    flex: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(89,246,251,.2);
+}
+
+.right_data_box .weather_box .other_info .value{
+    font-size: 12pt;
+    /*line-height: 100%;*/
+}
+
+.right_data_box .weather_box .other_info .name{
+    font-size: 8pt;
+    line-height: 100%;
+    margin-top: 10px;
+}
+
+.right_data_box .weather_box .weather_info_box .now_weather{
+    flex: auto;
+    font-size: 30pt;
+}
+
 .right_data_box .warning_box{
     width: 100%;
     height: 150px;
@@ -324,7 +364,6 @@ body {
 
 .right_data_box .copyright{
     width: 100%;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -494,8 +533,14 @@ body {
     }
 }
 
-.clock {
+.time_clock {
     display: flex;
+}
+.date_clock{
+    display: flex;
+    justify-content: flex-end;
+    zoom: 0.7;
+    margin-top: 20px;
 }
 .gap {
     height: 46px;
