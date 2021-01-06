@@ -13,7 +13,7 @@ console.log(
 console.log("Copyright (c) 2020 http://tyiet.cn AllRight Reserved. Written by Hanawa Hinata on 2020/1/25");
 
 
-
+import requestAction from './request.js';
 
 var  app = new Vue({
     el: '#app',
@@ -34,9 +34,12 @@ var  app = new Vue({
     methods:{
         getWeatherInfo:function () {
             return new Promise((result) => {
-                let url = "https://free-api.heweather.net/s6/weather/now?location=auto_ip&key=858fe70ccd0c4277bc5f4acfc8be54ce";
-                axios.get(url).then((res) => {
+                let queryParam = {location: 'auto_ip', key: '858fe70ccd0c4277bc5f4acfc8be54ce'};
+                let getAction = requestAction.getAction('https://free-api.heweather.net/s6/weather/now', queryParam);
+                getAction.then((res) => {
                     result(res.data.HeWeather6[0])
+                }).catch((err) => {
+                    console.error("请求出错。", err);
                 })
             });
         },
