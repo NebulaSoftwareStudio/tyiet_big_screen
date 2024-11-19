@@ -413,7 +413,11 @@ function getWeatherInfo(lat, lng){
   };
   axios.get("https://devapi.qweather.com/v7/weather/now", {params: queryParam}).then((res) => {
     console.log(res)
-    weatherInfo.value.now = res.data.now
+    if(res.data.now){
+      weatherInfo.value.now = res.data.now
+    }else{
+      weatherInfo.value.now = {}
+    }
   }).catch((err) => {
     console.error(err)
   })
